@@ -12,6 +12,7 @@
 
 		public function verify(){
 			$check=$this->LoginModel->validate();
+
 			if($check[1]!=200){
 				warning();
 			}
@@ -19,12 +20,14 @@
 			
 			 if(isset($response)){
 			 	$session_data = array(
-			 					'stampusername'=>$response->name,
+			 					'stampusername'=>"bansi",
 			 					'stampuserid'=>$response->id,
-			 					'profile'=>$response->profile,
+			 					'profile'=>"vk.jpg",
 			 					'lastlogin'=>$response->lastlogin,
 			 	);
 				$this->session->set_userdata($session_data);
+				// print_r($response);
+				// exit();
 				redirect('Dashboard');
 			 }
 			 else{

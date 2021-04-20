@@ -204,7 +204,8 @@ $('#add').click(function(e){
 
   });
       
-
+$(".quote").addClass("active");
+  
  });  
  </script> 
 

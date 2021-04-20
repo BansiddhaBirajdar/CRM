@@ -47,10 +47,13 @@
                   	<tr>
                   		<td><?php echo $record->id; ?></td>
                   		<td><?php echo $record->dname; ?></td>
-                  		<td> 
-                        <!-- data-toggle="modal" data-target="#modal-edit" -->
-                            <i type="button" class="fas fa-edit editfrom" data-id='<?php echo $record->id; ?>'   style="font-size: 25px;color: #1c8ceb;"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                  			<a href="<?php echo site_url('Staff/DeleteDataDepartment/').$record->id; ?>".><i class="fas fa-trash-alt" style="font-size: 25px;color: red;"></i></a>
+                      <td> 
+                        <span class="btn btn-info btn-sm">
+                        <i class="fas fa-pencil-alt editfrom" data-id='<?php echo $record->id; ?>'> Edit</i>
+                          </span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="btn btn-danger btn-sm " href="<?php echo site_url('Staff/DeleteDataDepartment/').$record->id; ?>".><i class="fas fa-trash" ></i> Delete</a>
+                      </td>
                   	</tr>
                     <?php }} ?>
  				  </tbody>

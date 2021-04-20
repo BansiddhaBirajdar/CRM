@@ -145,6 +145,10 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+
+$(".ManageStaff").addClass("active");
+ 
+
 $('#mobileno').change(function(){
   	 var x = $('#mobileno').val();
 	var numbers = /^[0-9]+$/;

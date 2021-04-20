@@ -124,7 +124,11 @@
 </div>	
 
 <script>  
- $(document).ready(function(){  
+ $(document).ready(function(){
+
+
+$(".Notice").addClass("active");
+  
 
   <?php if($this->session->flashdata('delete')){ ?>
       toastr.error('  Successfully Notice Delete .  ')    

@@ -107,13 +107,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url('Leads/addLeads')?>" class="nav-link">
+                <a href="<?php echo site_url('Leads/addLeads')?>" class="nav-link addLeads">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Leads</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo site_url('')?>" class="nav-link">
+                <a href="<?php echo site_url('Leads/manageLeads')?>" class="nav-link Leadslist">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Leads</p>
                 </a>
@@ -143,13 +143,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url('')?>" class="nav-link">
+                <a href="<?php echo site_url('Leads/addCustomer')?>" class="nav-link addCustomer">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Customer</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo site_url('')?>" class="nav-link">
+                <a href="<?php echo site_url('Leads/manageCustomer')?>" class="nav-link Customerlist">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Customer</p>
                 </a>
@@ -203,13 +203,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url('Staff/addStaff')?>" class="nav-link">
+                <a href="<?php echo site_url('Staff/addStaff')?>" class="nav-link AddStaff">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Staff</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo site_url('Staff/manageStaff')?>" class="nav-link">
+                <a href="<?php echo site_url('Staff/manageStaff')?>" class="nav-link ManageStaff">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Staff</p>
                 </a>
@@ -222,7 +222,7 @@
             <a href="#" class="nav-link" id="Setup">
               <i class="nav-icon fa fa-play"></i>
               <p>
-                Setup
+                Background Data
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>

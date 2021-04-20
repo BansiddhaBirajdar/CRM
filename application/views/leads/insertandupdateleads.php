@@ -31,9 +31,9 @@
     <!-- Main content -->
     <section class="content">
 <?php if(!isset($record)){?>
-        <form role="form" method="post" action="<?php echo(base_url('staff/insertDataStaff')); ?>" enctype="multipart/form-data">
+        <form role="form" method="post" action="<?php echo(base_url('Leads/insertDataLeads')); ?>" enctype="multipart/form-data">
   <?php }else{?>
-<form role="form" method="post" action="<?php echo(site_url('staff/UpdateDataStaff/'.$record->id));?>" enctype="multipart/form-data">
+<form role="form" method="post" action="<?php echo(site_url('Leads/UpdateDataLeads/'.$record->id));?>" enctype="multipart/form-data">
 <?php }?>
       <div class="row">
         <div class="col-md-6">
@@ -74,7 +74,7 @@
                       <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                       </div>
-                      <input type="text" class="form-control" name="email" value="<?php if(isset($record)){ echo $email;}else {echo'';} ?>"   required >
+                      <input type="text" class="form-control" name="email" value="<?php if(isset($record)){ echo $record->email;}else {echo'';} ?>"   required >
                   </div>
                   <!-- /.input group -->
                </div>
@@ -131,7 +131,7 @@
 
                  </div>
                     <?php if(isset($record)){ ?>
-                    <img src="<?php echo base_url();?>images/staff/<?php echo $record->image; ?>" alt="img" width="50px" heigth="50px" style="margin: 15px;" >
+                    <img src="<?php echo base_url();?>images/LeadsandCustomer/<?php echo $record->image; ?>" alt="img" width="50px" heigth="50px" style="margin: 15px;" >
                     <?php echo $record->image; } ?>
               </div>
                 <br>
@@ -141,60 +141,7 @@
           <!-- /.card -->
 
         </div>
-
         <div class="col-md-6">
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h3 class="card-title">Primary Contact</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fas fa-minus"></i></button>
-              </div>
-            </div>
-            <div class="card-body">
-                <div class="form-group">
-                  <label>Name : </label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-user"></i></span>
-                    </div>
-                    <input type="text" class="form-control" name="name" value="<?php if(isset($record)){ echo $record->name;}else {echo'';} ?>" placeholder="Enter Name" required>
-                  </div>
-                  <!-- /.input group -->
-               </div>
-
-              <div class="form-group">
-                  <label>phone No: </label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                    </div>
-                    <input type="text" class="form-control" name="mobileno" value="<?php if(isset($record)){ echo $record->mobileno;}else {echo'';} ?>"  data-inputmask='"mask": "+99 999 999-9999"' required="required" data-mask>
-                  </div>
-                  <!-- /.input group -->
-               </div>
-                <div class="form-group">
-                  <label>Emails : </label>
-                  	<div class="input-group">
-                    	<div class="input-group-prepend">
-                      		<span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                    	</div>
-                    	<input type="text" class="form-control" name="email" value="<?php if(isset($record)){ echo $email;}else {echo'';} ?>"   required >
-                	</div>
-                  <!-- /.input group -->
-               </div>
-               <div class="form-group">
-                  <label>Designation : </label>
-                  <div class="input-group">
-                  <input type="text" class="form-control" name="name" value="<?php if(isset($record)){ echo $record->designation;}else {echo'';} ?>" placeholder="Enter Designation" required>
-                  </div>
-                  <!-- /.input group -->
-               </div>
-
-            </div>
-            <!-- /.card-body -->
-          </div>
           <!-- /.card -->
            <div class="card card-primary">
             <div class="card-header">
@@ -210,12 +157,12 @@
                   <label>Source : </label>
                     <div class="input-group">
 
-                        <select class="form-control" name="department" id="department" required>
+                        <select class="form-control" name="source" id="source" required>
                         <?php if(!isset($record)){ ?>
                         <option value="">Select Source</option>
                         <?php } ?>  
                         <?php foreach ($source as $s) { ?>                           
-                        <option value='<?php if(isset($record)){echo $s->id; }else{ echo $s->id;} ?>' <?php if(isset($record)){ if($record->depid==$s->id){ echo'selected="selected"';}} ?> >
+                        <option value='<?php if(isset($record)){echo $s->id; }else{ echo $s->id;} ?>' <?php if(isset($record)){ if($leads->soruce_id==$s->id){ echo'selected="selected"';}} ?> >
                           <?php echo $s->sourcename; ?></option>
                         <?php } ?>
                       </select>
@@ -231,7 +178,7 @@
                         <option value="">Select A Staff Member</option>
                         <?php } ?>  
                         <?php foreach ($staff as $s) { ?>                           
-                        <option value='<?php if(isset($record)){echo $s->id; }else{ echo $s->id;} ?>' <?php if(isset($record)){ if($record->depid==$s->id){ echo'selected="selected"';}} ?> >
+                        <option value='<?php if(isset($record)){echo $s->id; }else{ echo $s->id;} ?>' <?php if(isset($record)){ if($leads->s_id==$s->id){ echo'selected="selected"';}} ?> >
                           <?php echo $s->name; ?></option>
                         <?php } ?>
                       </select>
@@ -239,19 +186,21 @@
                   <!-- /.input group -->
                 </div>
                 <div class="form-group">
-                <label for="inputDescription">Comments:</label>
-                <textarea id="inputDescription" name="street" class="form-control" rows="3"><?php if(isset($record)){ echo $record->Comments;}else {echo'';} ?></textarea>
+                  <label for="inputDescription">Comments:</label>
+                  <textarea id="inputDescription" name="Comments" class="form-control" rows="3"><?php if(isset($record)){ echo $leads->comments;}else {echo'';} ?></textarea>
+                </div>
+                <div class="form-group">
+                <label for="inputStatus">Status :</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                   <select class="form-control" name="status" required>
+                  <option value="Not Done" <?php if(isset($record)){ if($leads->status=='Pendding'){ echo'selected="selected"';}}?> selected>Not Done</option>
+                  <option value="Done" <?php if(isset($record)){ if($leads->status=='Done'){ echo'selected="selected"';}}?>>Done</option>
+                  </select>
+                 </div>
               </div>
-               <div class="form-group">
-                  <label>Status : </label>
-                  	<div class="input-group">
-                        <select class="form-control" name="department" id="department" required>                           
-                        <option value='New' >New</option>
-                        <option value='Old' >Old</option>
-                      </select>
-                	</div>
-                  <!-- /.input group -->
-               	</div>
             </div>
 
             <!-- /.card-body -->
@@ -260,12 +209,11 @@
           <!-- /.card -->
         </div>
 
-
       </div>
       <div class="row">
         <div class="col-12">
           <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
-            <a href="<?php echo site_url('Staff/manageStaff')?>" class="btn btn-danger">Back</a>
+            <a href="<?php echo site_url('Leads/manageLeads')?>" class="btn btn-danger">Back</a>
           <?php if(!isset($record)){ ?>
               <!-- <input type="submit" value="Save" class="btn btn-success float-right"> -->
               <button type="submit"  class="btn btn-success float-right">Submit</button>

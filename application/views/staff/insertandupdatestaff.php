@@ -432,5 +432,12 @@ function myFunction(){
  window.onload=myFunction;
 <?php } ?>
 </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+$(".AddStaff").addClass("active");
+});
+</script>
+
 <!--=========================================================================================================================-->
 <?php $this->load->view('common/footer'); ?>
