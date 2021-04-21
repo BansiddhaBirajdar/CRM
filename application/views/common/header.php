@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assetes/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- chartjs -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.1.0/dist/chart.min.js"></script>
+  
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>

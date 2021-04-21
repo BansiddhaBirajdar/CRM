@@ -120,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 
 				);
-			$data['stampdate']=date('d-M-Y');
+			$data['stampdate']=date('Y-m-d');
 			$data['stamptime']=date('h:i:s a');
 			$data['stampuserid']=$this->session->userdata('stampuserid');
 			$data['stampusername']=$this->session->userdata('stampusername');
@@ -227,7 +227,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 
 				);
-			$data['stampdate']=date('d-M-Y');
+			$data['stampdate']=date('Y-m-d');
 			$data['stamptime']=date('h:i:s a');
 			$data['stampuserid']=$this->session->userdata('stampuserid');
 			$data['stampusername']=$this->session->userdata('stampusername');
@@ -367,7 +367,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'role'=>'C',
 				'lastlogin'=>date("l/d/F/Y h:i:s a")
 				);
-			$data['stampdate']=date('d-M-Y');
+			$data['stampdate']=date('Y-m-d');
 			$data['stamptime']=date('h:i:s a');
 			$data['stampuserid']=$this->session->userdata('stampuserid');
 			$data['stampusername']=$this->session->userdata('stampusername');
@@ -478,7 +478,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'lastlogin'=>date("l/d/F/Y h:i:s a")	
 
 				);
-			$data['stampdate']=date('d-M-Y');
+			$data['stampdate']=date('Y-m-d');
 			$data['stamptime']=date('h:i:s a');
 			$data['stampuserid']=$this->session->userdata('stampuserid');
 			$data['stampusername']=$this->session->userdata('stampusername');

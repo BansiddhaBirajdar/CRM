@@ -86,41 +86,65 @@
         </div>
         <!-- /.row -->
         <div class="row">
-          <section class="col-lg-7 connectedSortable">
+          <section class="col-lg-8 connectedSortable">
              <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i>
-                  Sales
+                  <i class="fas fa-chart-line mr-1"></i>
+                  Customer
                 </h3>
-                <div class="card-tools">
-                  <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                    </li>
-                  </ul>
-                </div>
+
               </div><!-- /.card-header -->
               <div class="card-body">
-                <div class="tab-content p-0">
+                <div class="tab-content">
                   <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart"
-                       style="position: relative; height: 300px;">
-                      <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>                         
-                   </div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>                         
+
+                    <canvas id="myChart" width="700px" height="300px"></canvas>                         
                   </div>  
                 </div>
               </div><!-- /.card-body -->
-            </div>
+            
           </section>
         </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
+  <script type="text/javascript">
+
+
+var data1=<?php echo $data; ?>;
+// alert(data[0].count);
+
+var labels = data1.map(function(e) {
+   return e.month;
+});
+var data = data1.map(function(e) {
+   return e.count;
+});
+    var ctx = document.getElementById('myChart');
+
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+  labels:labels,
+  datasets: [{
+    label: 'Customer',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data:data,
+    }]
+  },
+
+  options: {
+    responsive:false,
+    title:{
+      display:true,
+      text:"Bar Chart",
+      position:"bottom",
+      fontSize:25
+    },
+  }
+});
+  </script>
 <?php $this->load->view('common/footer'); ?>
