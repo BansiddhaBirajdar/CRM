@@ -20,7 +20,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Dashborad</a></li>
-              <li class="breadcrumb-item"><a href="#">Leads Members List</a></li>
+
               <li class="breadcrumb-item active"><?php if(isset($record)){ ?> Update Leads Member <?php }else{?> Add Leads Member <?php } ?></li>
             </ol>
           </div>
@@ -213,13 +213,22 @@
       <div class="row">
         <div class="col-12">
           <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
-            <a href="<?php echo site_url('Leads/manageLeads')?>" class="btn btn-danger">Back</a>
           <?php if(!isset($record)){ ?>
               <!-- <input type="submit" value="Save" class="btn btn-success float-right"> -->
               <button type="submit"  class="btn btn-success float-right">Submit</button>
               <?php }else{?> 
+
               <button type="submit" class="btn btn-success float-right">Update</button>
-            <?php } ?>
+            
+
+
+            <?php } if($value==0){?>
+            <a href="<?php echo site_url('Leads/manageLeads')?>" class="btn btn-danger">Back</a>
+          <?php }else if($value==1){?>
+            <a href="<?php echo site_url('Leads/SuccessLeads')?>" class="btn btn-danger">Back</a>
+          <?php }else if($value==2){?>
+            <a href="<?php echo site_url('Leads/PenddingLeads')?>" class="btn btn-danger">Back</a>
+          <?php }?>
         </div>
       </div>
       <br>

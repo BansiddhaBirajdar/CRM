@@ -43,7 +43,7 @@
                     <th>Staff Name</th>
                     <th>Date</th>
                     <th>StampUserName</th>
-                    <td>Convert Customer</td>
+                    <th>Convert Customer</th>
                     <th>Action</th>
                   </tr>
                   </thead>

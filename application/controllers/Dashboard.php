@@ -12,6 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function index(){
 			$this->load->view('dashboard');
 		}
+		public function dashboardcustomer()
+		{
+			$this->load->view('cdashboard');	
+		}
 		public function logout(){
 			$this->session->sess_destroy();
 			redirect(base_url('Login'));

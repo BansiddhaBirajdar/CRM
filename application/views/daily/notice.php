@@ -1,4 +1,15 @@
-<?php $this->load->view('common/header'); ?>
+
+<?php 
+if($this->session->userdata('role')=='S'){
+$this->load->view('common/header');   
+}
+else
+{
+ $this->load->view('common/cheader');    
+}
+
+
+?>
 <!--================================================================================================================================-->
 
 <div class="content-wrapper">
@@ -27,8 +38,10 @@
             <!-- /.card -->
             <div class="card">
               <div class="card-header">
+              <?php if($this->session->userdata('lastlogin')=='S'){?>
                 <button class="btn btn-primary btn-md " id="add" data-toggle="modal" data-target="#modal-default">
                   <i class="nav-icon fas fa-plus"></i> Add Notice</button>
+                <?php } ?>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -109,9 +122,11 @@
                     </div>
                   </div>
             			<div class="card-footer">
+                      <?php if($this->session->userdata('lastlogin')=='S'){?>
 			                <button  type="submit" name="upload" id="upload" class="btn btn-primary add" >Add</button>
                       <button  type="submit" name="upload" id="upload" class="btn btn-primary update" style="display: none">Update</button>
-			                <button  class="btn btn-danger" data-dismiss="modal">Close</button>
+			                <?php }?>
+                      <button  class="btn btn-danger" data-dismiss="modal">Close</button>
 			            </div>
             		</form>
             	</div>		

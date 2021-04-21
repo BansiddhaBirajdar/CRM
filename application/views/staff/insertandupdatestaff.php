@@ -1,4 +1,14 @@
-<?php $this->load->view('common/header');
+<?php 
+
+if($this->session->userdata('role')=='S'){
+$this->load->view('common/header');   
+}
+else
+{
+ $this->load->view('common/cheader');    
+}
+
+
 if(isset($record)){
   if($login->staffid==$record->id){
     $email=$login->email;

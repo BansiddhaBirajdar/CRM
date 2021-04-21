@@ -143,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			//department 
 			$url=$this->apiurl."department/fetch";
 			$resopne5=$this->FetchAllDataModel->FetchAllData($url);
-			// //staffmaster? 
+			//staffmaster? 
 			$url=$this->apiurl."staffmaster/getdetail/".$id;
 			$resopne6=$this->FetchAllDataModel->FetchAllData($url);
 			//loginmaster 
@@ -153,16 +153,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				warning();
 			}
-			$data['countries']=json_decode($resopne1[0]);
-			$data['states']=json_decode($resopne2[0]);
-			$data['cities']=json_decode($resopne3[0]);
-			$data['pincode']=json_decode($resopne4[0]);
-			$data['depts']=json_decode($resopne5[0]);
+			// $data['countries']=json_decode($resopne1[0]);
+			// $data['states']=json_decode($resopne2[0]);
+			// $data['cities']=json_decode($resopne3[0]);
+			// $data['pincode']=json_decode($resopne4[0]);
+			// $data['depts']=json_decode($resopne5[0]);
 			$data['record']=json_decode($resopne6[0]);
-			$data['login']=json_decode($resopne7[0]);
-			// print_r($data);
+			// $data['login']=json_decode($resopne7[0]);
+			print_r($data);
+			echo $id;
 
-			$this->load->view('staff/insertandupdatestaff',$data);
+			// $this->load->view('staff/insertandupdatestaff',$data);
 
 		}
 		public function UpdateDataStaff($id){

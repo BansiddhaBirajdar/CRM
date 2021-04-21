@@ -28,8 +28,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		}
+		public function SuccessLeads()
+		{
+			// customermaster
+			$url=$this->apiurl."leadsmaster/fetch";
+			$resopne1=$this->FetchAllDataModel->FetchAllData($url);
+			if($resopne1[1]!=200){
+				warning();
+			}
+			$data['records']=json_decode($resopne1[0]);
+			$data['SuccessLeads']=1;
+			$this->load->view('leads/successleadlist',$data);
 
-
+		}
+		public function PenddingLeads()
+		{
+			// customermaster
+			$url=$this->apiurl."leadsmaster/fetch";
+			$resopne1=$this->FetchAllDataModel->FetchAllData($url);
+			if($resopne1[1]!=200){
+				warning();
+			}
+			$data['records']=json_decode($resopne1[0]);
+			$data['PenddingLeads']=1;
+			$this->load->view('leads/successleadlist',$data);
+		}
 
 		public function addLeads(){
 			// countrymaster
@@ -111,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     warning();
             }
 		}
-		public function getdetailLeads($id)
+		public function getdetailLeads($id,$value=0)
 		{
 				// countrymaster
 			$url=$this->apiurl."countrymaster/fetch";
@@ -155,6 +178,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['staff']=json_decode($resopne7[0]);
 			$data['record']=json_decode($resopne8[0]);
 			$data['leads']=json_decode($resopne9[0]);
+			$data['value']=$value;
 			$this->load->view('leads/insertandupdateleads',$data);
 
 
@@ -267,6 +291,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				warning();
 			}
 			$data['records']=json_decode($resopne1[0]);
+			// print_r($data);
+			// exit();
 			$this->load->view('leads/customerlist',$data);	
 
 
@@ -333,6 +359,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'image'=>$photo,
 				'email'=>$this->input->post('email'),
 				'flag'=>'C',
+
 				'lemail'=>$this->input->post('lemail'),
 				'password'=>$this->input->post('password'),
 				'status'=>$this->input->post('status'),
@@ -458,7 +485,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$respone=$this->InsertDataModel->InsertDataDepartment($url,$data);
 			if($respone[1]==200){
 						$this->session->set_flashdata('success','Data successfully Add ');
-						redirect(base_url('Leads/manageCustomer'));
+						if($this->session->userdata('role')=='C')
+						{
+							redirect(base_url('Dashboard/dashboardcustomer'));
+						}
+						else{
+
+							redirect(base_url('Leads/manageCustomer'));
+						}
               }
               else{
                     warning();
@@ -466,6 +500,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
+		}
+
+		public function CustomerTicktes($id,$c_name)
+		{
+			
+			$url=$this->apiurl."ticketsmaster/bycustomerid/".$id;
+			$resopne1=$this->FetchAllDataModel->FetchAllData($url);
+			if($resopne1[1]!=200)
+			{
+				warning();
+			}
+			$data['records']=json_decode($resopne1[0]);
+			
+			$data['c_name']=$c_name;
+			$data['c_id']=$id;
+			$this->load->view('leads/customerTicktesList',$data);
+
+		}
+		public function addTicketCustomer($id)
+		{
+			//productsmaster 
+			$url=$this->apiurl."productsmaster/fetch";
+			$resopne1=$this->FetchAllDataModel->FetchAllData($url);
+
+			//Customer master
+			$url=$this->apiurl."customermaster/fetch";
+			$resopne2=$this->FetchAllDataModel->FetchAllData($url);
+
+			//issuemaster 
+			$url=$this->apiurl."issuemaster/fetch";
+			$resopne3=$this->FetchAllDataModel->FetchAllData($url);
+
+			//staffmaster 
+			$url=$this->apiurl."staffmaster/fetch";
+			$resopne4=$this->FetchAllDataModel->FetchAllData($url);
+
+
+			if($resopne1[1]!=200 && $resopne2[1]!=200  && $resopne3[1]!=200 && $resopne4[1]!=200){
+				warning();
+			}
+			$data['products']=json_decode($resopne1[0]);
+			$data['customer']=json_decode($resopne2[0]);
+			$data['issue']=json_decode($resopne3[0]);
+			$data['staff']=json_decode($resopne4[0]);
+			$data['cid']=$id;
+			// print_r($data);
+			$this->load->view('tickets/insertAndUpdateTickets',$data);
 		}
 
 	}

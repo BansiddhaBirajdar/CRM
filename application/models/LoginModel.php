@@ -17,7 +17,7 @@
 						'password'=>$this->input->post('pass')
 					);
 			$req['lastlogin']=date("l/d/F/Y h:i:s a");
-		
+			
 			return postdata($url,$req);			
 		}	
 	}	

@@ -118,18 +118,18 @@
                   <p>Manage Leads</p>
                 </a>
               </li>
-             <!--  <li class="nav-item">
-                <a href="<?php echo site_url('')?>" class="nav-link">
+              <li class="nav-item">
+                <a href="<?php echo site_url('Leads/SuccessLeads')?>" class="nav-link SuccessLeads">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Call History</p>
+                  <p>Success Leads</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo site_url('')?>" class="nav-link">
+                <a href="<?php echo site_url('Leads/PenddingLeads')?>" class="nav-link PenddingLeads">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Appointments</p>
+                  <p>Pendding Leads</p>
                 </a>
-              </li> -->
+              </li>
             </ul>  
           </li>
           
@@ -154,18 +154,6 @@
                   <p>Manage Customer</p>
                 </a>
               </li>
-<!--               <li class="nav-item">
-                <a href="<?php echo site_url('')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Call History</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo site_url('')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Appointments</p>
-                </a>
-              </li> -->
             </ul>
             
           </li>
@@ -192,6 +180,42 @@
                 </a>
               </li>
             </ul>  
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-ticket-alt"></i>
+              <p>
+                Tickets
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url('Tickets/addTickets')?>" class="nav-link AddTickets">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Tickets</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('Tickets/manageTickets')?>" class="nav-link ManageTickets">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Tickets</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('Tickets/SolveTickets')?>" class="nav-link sTickets">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Solve Tickets</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('Tickets/PenddingTickets')?>" class="nav-link pTickets">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pendding Tickets</p>
+                </a>
+              </li>
+              
+            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
