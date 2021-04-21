@@ -128,7 +128,7 @@
                       </div>
                       <div class="col-sm-12">
                         <div class="form-group">
-                          <label for="exampleInputName1">State Name</label>
+                          <label for="exampleInputName1">City Name</label>
                           <input type="text" class="form-control" id="cityname" name="cityname"  placeholder="Enter City " required>
                         </div>
                       </div>

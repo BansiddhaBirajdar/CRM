@@ -31,7 +31,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assetes/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assetes/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  
+  <!-- chartjs -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.1.0/dist/chart.min.js"></script>
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -82,7 +83,7 @@
           <img src="<?php echo base_url(); ?>images/staff/<?php echo $this->session->userdata('profile');?>" class="img-circle elevation-1" alt="User Image">
         </div>
         <div class="info">
-          <a href="<?php echo site_url('Staff/getByIdDataStaff/').$this->session->userdata('stampuserid'); ?>" class="d-block"> C_R_M : <?php echo $this->session->userdata('stampusername');?></a>
+          <a href="<?php echo site_url('Staff/getByIdDataStaff/').$this->session->userdata('stampuserid'); ?>" class="d-block"><?php echo $this->session->userdata('stampusername');?></a>
         </div>
       </div>
 
@@ -158,29 +159,7 @@
             
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-archive"></i>
-              <p>
-                Daily
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo site_url('Daily/noticeList')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Notice</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo site_url('Daily/quoteList')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Quote</p>
-                </a>
-              </li>
-            </ul>  
-          </li>
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-ticket-alt"></i>
@@ -216,6 +195,29 @@
               </li>
               
             </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-archive"></i>
+              <p>
+                Daily
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url('Daily/noticeList')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Notice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('Daily/quoteList')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Quote</p>
+                </a>
+              </li>
+            </ul>  
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

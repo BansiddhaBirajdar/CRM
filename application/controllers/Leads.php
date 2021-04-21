@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['depts']=json_decode($resopne5[0]);
 			$data['source']=json_decode($resopne6[0]);
 			$data['staff']=json_decode($resopne7[0]);
-			// print_r($data);
+			$data['value']=0;
 			$this->load->view('leads/insertandupdateleads',$data);
 
 			
@@ -247,6 +247,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function converCustomer($id)
 		{
+
 			// leadsmaster/converCustomer
 			$url=$this->apiurl."leadsmaster/converCustomer/".$id;
 			$resopne1=$this->FetchAllDataModel->FetchAllData($url);
@@ -408,7 +409,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$url=$this->apiurl."customermaster/getdetail/".$id;
 			$resopne8=$this->FetchAllDataModel->FetchAllData($url);
 				// ladas
-			$url=$this->apiurl."loginmaster/getdetail/".$id;
+			$url=$this->apiurl."loginmaster/customergetdetail/".$id;
 			$resopne9=$this->FetchAllDataModel->FetchAllData($url);
 			
 
@@ -545,7 +546,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['issue']=json_decode($resopne3[0]);
 			$data['staff']=json_decode($resopne4[0]);
 			$data['cid']=$id;
-			// print_r($data);
 			$this->load->view('tickets/insertAndUpdateTickets',$data);
 		}
 

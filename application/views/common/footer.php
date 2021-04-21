@@ -39,7 +39,8 @@
 <script src="<?php echo base_url(); ?>assetes/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo base_url(); ?>assetes/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url(); ?>assetes/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-
+<!-- ChartJS -->
+<!-- <script src="<?php echo base_url(); ?>assetes/plugins/chart.js/Chart.min.js"></script> -->
 <script>
   $(function () {
     $("#example1").DataTable({

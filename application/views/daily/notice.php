@@ -38,7 +38,7 @@ else
             <!-- /.card -->
             <div class="card">
               <div class="card-header">
-              <?php if($this->session->userdata('lastlogin')=='S'){?>
+              <?php if($this->session->userdata('role')=='S'){?>
                 <button class="btn btn-primary btn-md " id="add" data-toggle="modal" data-target="#modal-default">
                   <i class="nav-icon fas fa-plus"></i> Add Notice</button>
                 <?php } ?>
@@ -122,7 +122,7 @@ else
                     </div>
                   </div>
             			<div class="card-footer">
-                      <?php if($this->session->userdata('lastlogin')=='S'){?>
+                      <?php if($this->session->userdata('role')=='S'){?>
 			                <button  type="submit" name="upload" id="upload" class="btn btn-primary add" >Add</button>
                       <button  type="submit" name="upload" id="upload" class="btn btn-primary update" style="display: none">Update</button>
 			                <?php }?>

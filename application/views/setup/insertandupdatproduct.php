@@ -95,7 +95,7 @@
                                     <button type="submit" name="upload" id="upload"
                                         class="btn btn-primary">Update</button>
                                     <?php } ?>
-                                    <a href="<?php echo site_url('admin/SliderMaster/index')?>" class="btn btn-danger">
+                                    <a href="<?php echo site_url('Setup/productsList')?>" class="btn btn-danger">
                                         Back</a>
                                 </div>
 
