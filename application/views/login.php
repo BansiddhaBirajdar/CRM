@@ -60,11 +60,11 @@
           <!-- /.col -->
         </div>
       </form>
-      <p class="mb-1">
+<!--       <p class="mb-1">
      <spam type="button" class="btn btn-default text-primary" data-toggle="modal" data-target="#modal-default">
                   I forgot my password
                 </span>
-      </p>
+      </p> -->
       <div class="social-auth-links text-center mb-3">
         <?php if($this->session->flashdata('warning')){ ?>
                   <p style="color: red;"><?php echo $this->session->flashdata('warning'); ?></p>

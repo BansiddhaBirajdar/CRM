@@ -28,9 +28,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>0</h3>
+                <h3><?php echo$ccount->count; ?></h3>
 
-                <p>Total Project</p>
+                <p>Total Customer</p>
               </div>
               <div class="icon">
                 <i class="ion ion-filing"></i>
@@ -43,9 +43,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>0</h3>
+                <h3><?php echo$lcount->count; ?></h3>
 
-                <p>Total Proposals</p>
+                <p>Total Leads</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -58,11 +58,11 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>0</h3>
-                <p>Total Estimates</p>
+                <h3><?php echo $tcount->count; ?></h3>
+                <p>Total Tickets</p>
               </div>
               <div class="icon">
-                <i class="ion ion-card"></i>
+                <i class="fas fa-ticket-alt"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -72,12 +72,12 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3><?php echo $scount->count; ?></h3>
 
-                <p>Total Invoices</p>
+                <p>Total Staff</p>
               </div>
               <div class="icon">
-                <i class="ion ion-clipboard"></i>
+                <i class="fas fa-users"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -86,7 +86,7 @@
         </div>
         <!-- /.row -->
         <div class="row">
-          <section class="col-lg-8 connectedSortable">
+          <section class="col-lg-8 connectedSortable ">
              <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
@@ -130,7 +130,7 @@ var myChart = new Chart(ctx, {
   labels:labels,
   datasets: [{
     label: 'Customer',
-    backgroundColor: 'rgb(255, 99, 132)',
+    backgroundColor: 'rgb(0,0 , 0)',
     borderColor: 'rgb(255, 99, 132)',
     data:data,
     }]
@@ -143,7 +143,7 @@ var myChart = new Chart(ctx, {
       text:"Bar Chart",
       position:"bottom",
       fontSize:25
-    },
+    }
   }
 });
   </script>

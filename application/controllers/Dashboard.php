@@ -20,13 +20,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function index(){
 			$url=$this->apiurl."customermaster/CountCustomer";
 			$resopne1=$this->FetchAllDataModel->FetchAllData($url);
+			$url=$this->apiurl."ticketsmaster/ttotalcount";
+			$resopne2=$this->FetchAllDataModel->FetchAllData($url);
+			
+			$url=$this->apiurl."customermaster/ctotalcount";
+			$resopne3=$this->FetchAllDataModel->FetchAllData($url);
+			$url=$this->apiurl."/leadsmaster/ltotalcount";
+			$resopne4=$this->FetchAllDataModel->FetchAllData($url);
+			$url=$this->apiurl."/staffmaster/stotalcount";
+			$resopne5=$this->FetchAllDataModel->FetchAllData($url);
 			if($resopne1[1]!=200){
 				warning();
 			}
 			$data['data']=$resopne1[0];
-			// $data['records']=json_decode($resopne1[0]);
-				
-
+			$data['tcount']=json_decode($resopne2[0]);
+			$data['ccount']=json_decode($resopne3[0]);
+			$data['lcount']=json_decode($resopne4[0]);
+			$data['scount']=json_decode($resopne5[0]);
+			// print_r($data);
+			// exit();
 			$this->load->view('dashboard',$data);
 		}
 		public function dashboardcustomer()
